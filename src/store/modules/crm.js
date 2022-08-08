@@ -1,0 +1,121 @@
+const clientModule = {
+  state: {
+    crm: [
+      {
+        id: "elead",
+        name: "eLead",
+        url: "https://www.eleadcrm.com/evo2/fresh/login.asp",
+      },
+      {
+        id: "cyclcrm",
+        name: "cyclCRM",
+        url: "https://app.cyclcrm.com/",
+      },
+      {
+        id: "lessannoyingcrm",
+        name: "Less Annyoying CRM",
+        url: "https://account.lessannoyingcrm.com/login/",
+      },
+      {
+        id: "autorator",
+        name: "Autorator",
+        url: "https://ar.autoraptor.com/login",
+      },
+      {
+        id: "simple-social",
+        name: "Simple Social",
+        url: "https://app.simpsocial.com/",
+      },
+    ],
+    client: [
+      {
+        id: "rn",
+        name: "Royal Nissan",
+        CRM: "elead",
+        username: "aad21845",
+        password: "Taaa072022",
+        stores: [{ storeid: "0000", storeName: "Royal Nissan" }],
+      },
+      {
+        id: "rf",
+        name: "Rogers Ford/Lincoln",
+        CRM: "elead",
+        username: "autoadagen",
+        password: "Sales2022",
+        stores: [{ storeid: "0000", storeName: "Rogers Ford/Lincoln" }],
+      },
+      {
+        id: "hdf",
+        name: "Hull Dobbs Ford",
+        CRM: "elead",
+        username: "autoagency",
+        password: "July2022",
+        stores: [{ storeid: "0000", storeName: "Hull Dobbs Ford" }],
+      },
+      {
+        id: "bas-ash",
+        name: "Benchmark Auto Sales Asheville",
+        CRM: "cyclcrm",
+        username: "autoagency",
+        password: "123456789",
+        stores: [
+          { storeid: "18785", storeName: "Benchmark Auto Sales Asheville" },
+        ],
+      },
+      {
+        id: "bas-mc",
+        name: "Benchmark Morehead City",
+        CRM: "cyclcrm",
+        username: "Tara",
+        password: "password",
+        stores: [{ storeid: "19425", storeName: "Benchmark Morehead City" }],
+      },
+      {
+        id: "bas-ws",
+        name: "Benchmark Winston-Salem",
+        CRM: "cyclcrm",
+        username: "autoadagency",
+        password: "password",
+        stores: [{ storeid: "19473", storeName: "Benchmark Winston-Salem" }],
+      },
+      {
+        id: "sn2g",
+        name: "Shift N2 Gear",
+        CRM: "lessannoyingcrm",
+        username: "jessieluvslife1978@gmail.com",
+        password: "Wcmiw137!",
+        stores: [{ storeid: "0000", storeName: "Shift N2 Gear" }],
+      },
+      {
+        id: "kcs",
+        name: "Knight's Car Store",
+        CRM: "autorator",
+        username: "johnfordknight@gmail.com",
+        password: "Carstore1",
+        stores: [{ storeid: "0000", storeName: "Knight's Car Store" }],
+      },
+      {
+        id: "an",
+        name: "Auto Now",
+        CRM: "simple-social",
+        username: "mark@theautoadagency.com",
+        password: "Mangosteen7038",
+        stores: [
+          { storeid: "0000", storeName: "Wichita" },
+          { storeid: "0000", storeName: "Topeka" },
+          { storeid: "0000", storeName: "Belton" },
+          { storeid: "0000", storeName: "Independence" },
+          { storeid: "0000", storeName: "Wornall" },
+          { storeid: "0000", storeName: "Olathe" },
+          { storeid: "0000", storeName: "Wichita 2" },
+          { storeid: "0000", storeName: "Dealership Number" },
+        ],
+      },
+    ],
+  },
+  getters: {},
+  mutations: {},
+  actions: {},
+};
+
+export default clientModule;
