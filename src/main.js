@@ -30,5 +30,7 @@ import MegaMenu from "primevue/megamenu";
 app.component("MegaMenu", MegaMenu);
 import InputText from "primevue/inputtext";
 app.component("InputText", InputText);
+import MultiSelect from "primevue/multiselect";
+app.component("MultiSelect", MultiSelect);
 
 app.mount("#app");

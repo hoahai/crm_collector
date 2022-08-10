@@ -34,7 +34,7 @@ const clientModule = {
         CRM: "elead",
         username: "aad21845",
         password: "Taaa072022",
-        stores: [{ storeid: "0000", storeName: "Royal Nissan" }],
+        stores: [{ id: "0000", name: "Royal Nissan" }],
       },
       {
         id: "rf",
@@ -42,7 +42,7 @@ const clientModule = {
         CRM: "elead",
         username: "autoadagen",
         password: "Sales2022",
-        stores: [{ storeid: "0000", storeName: "Rogers Ford/Lincoln" }],
+        stores: [{ id: "0000", name: "Rogers Ford/Lincoln" }],
       },
       {
         id: "hdf",
@@ -50,7 +50,7 @@ const clientModule = {
         CRM: "elead",
         username: "autoagency",
         password: "July2022",
-        stores: [{ storeid: "0000", storeName: "Hull Dobbs Ford" }],
+        stores: [{ id: "0000", name: "Hull Dobbs Ford" }],
       },
       {
         id: "bas-ash",
@@ -58,9 +58,7 @@ const clientModule = {
         CRM: "cyclcrm",
         username: "autoagency",
         password: "123456789",
-        stores: [
-          { storeid: "18785", storeName: "Benchmark Auto Sales Asheville" },
-        ],
+        stores: [{ id: "18785", name: "Benchmark Auto Sales Asheville" }],
       },
       {
         id: "bas-mc",
@@ -68,7 +66,7 @@ const clientModule = {
         CRM: "cyclcrm",
         username: "Tara",
         password: "password",
-        stores: [{ storeid: "19425", storeName: "Benchmark Morehead City" }],
+        stores: [{ id: "19425", name: "Benchmark Morehead City" }],
       },
       {
         id: "bas-ws",
@@ -76,7 +74,7 @@ const clientModule = {
         CRM: "cyclcrm",
         username: "autoadagency",
         password: "password",
-        stores: [{ storeid: "19473", storeName: "Benchmark Winston-Salem" }],
+        stores: [{ id: "19473", name: "Benchmark Winston-Salem" }],
       },
       {
         id: "sn2g",
@@ -84,7 +82,7 @@ const clientModule = {
         CRM: "lessannoyingcrm",
         username: "jessieluvslife1978@gmail.com",
         password: "Wcmiw137!",
-        stores: [{ storeid: "0000", storeName: "Shift N2 Gear" }],
+        stores: [{ id: "0000", name: "Shift N2 Gear" }],
       },
       {
         id: "kcs",
@@ -92,7 +90,7 @@ const clientModule = {
         CRM: "autorator",
         username: "johnfordknight@gmail.com",
         password: "Carstore1",
-        stores: [{ storeid: "0000", storeName: "Knight's Car Store" }],
+        stores: [{ id: "0000", name: "Knight's Car Store" }],
       },
       {
         id: "an",
@@ -101,19 +99,43 @@ const clientModule = {
         username: "mark@theautoadagency.com",
         password: "Mangosteen7038",
         stores: [
-          { storeid: "0000", storeName: "Wichita" },
-          { storeid: "0000", storeName: "Topeka" },
-          { storeid: "0000", storeName: "Belton" },
-          { storeid: "0000", storeName: "Independence" },
-          { storeid: "0000", storeName: "Wornall" },
-          { storeid: "0000", storeName: "Olathe" },
-          { storeid: "0000", storeName: "Wichita 2" },
-          { storeid: "0000", storeName: "Dealership Number" },
+          { id: "0000", name: "Wichita" },
+          { id: "0000", name: "Topeka" },
+          { id: "0000", name: "Belton" },
+          { id: "0000", name: "Independence" },
+          { id: "0000", name: "Wornall" },
+          { id: "0000", name: "Olathe" },
+          { id: "0000", name: "Wichita 2" },
+          { id: "0000", name: "Dealership Number" },
         ],
       },
     ],
   },
-  getters: {},
+  getters: {
+    getTreeSelectClients: (state) => {
+      const clients = state.client;
+      let data = [];
+
+      clients.forEach((client) => {
+        let clientData = {};
+        clientData.clientName = client.name;
+
+        let clientData_stores = [];
+        const stores = client.stores;
+        stores.forEach((store) => {
+          console.log();
+          let storeData = {};
+          storeData.clientId = client.id;
+          storeData.storeName = store.name;
+          storeData.storeId = store.id;
+          clientData_stores.push(storeData);
+        });
+        clientData.stores = clientData_stores;
+        data.push(clientData);
+      });
+      return data;
+    },
+  },
   mutations: {},
   actions: {},
 };
