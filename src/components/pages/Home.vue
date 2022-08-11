@@ -16,6 +16,7 @@
 import { ref } from "vue";
 import { useStore } from "vuex";
 import { groupBy } from "lodash";
+import cyclcrm from "@/js/cyclcrm";
 
 export default {
   setup() {
@@ -27,6 +28,11 @@ export default {
     function onChange() {
       const abc = groupBy(selectedItem.value, "clientId");
       console.log(abc);
+      cyclcrm({
+        dealer_id: "18785",
+        username: "digital@theautoadagency.com",
+        password: "123456789",
+      });
     }
     return { selectedItem, clients, onChange };
   },
