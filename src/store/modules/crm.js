@@ -31,7 +31,7 @@ const clientModule = {
       {
         id: "rn",
         name: "Royal Nissan",
-        CRM: "elead",
+        crm: "elead",
         username: "aad21845",
         password: "Taaa072022",
         stores: [{ id: "0000", name: "Royal Nissan" }],
@@ -39,7 +39,7 @@ const clientModule = {
       {
         id: "rf",
         name: "Rogers Ford/Lincoln",
-        CRM: "elead",
+        crm: "elead",
         username: "autoadagen",
         password: "Sales2022",
         stores: [{ id: "0000", name: "Rogers Ford/Lincoln" }],
@@ -47,7 +47,7 @@ const clientModule = {
       {
         id: "hdf",
         name: "Hull Dobbs Ford",
-        CRM: "elead",
+        crm: "elead",
         username: "autoagency",
         password: "July2022",
         stores: [{ id: "0000", name: "Hull Dobbs Ford" }],
@@ -55,15 +55,17 @@ const clientModule = {
       {
         id: "bas-ash",
         name: "Benchmark Auto Sales Asheville",
-        CRM: "cyclcrm",
-        username: "autoagency",
+        crm: "cyclcrm",
+        loginId: "18785",
+        username: "digital@theautoadagency.com",
         password: "123456789",
         stores: [{ id: "18785", name: "Benchmark Auto Sales Asheville" }],
       },
       {
         id: "bas-mc",
         name: "Benchmark Morehead City",
-        CRM: "cyclcrm",
+        crm: "cyclcrm",
+        loginId: "19425",
         username: "Tara",
         password: "password",
         stores: [{ id: "19425", name: "Benchmark Morehead City" }],
@@ -71,7 +73,8 @@ const clientModule = {
       {
         id: "bas-ws",
         name: "Benchmark Winston-Salem",
-        CRM: "cyclcrm",
+        crm: "cyclcrm",
+        loginId: "19425",
         username: "autoadagency",
         password: "password",
         stores: [{ id: "19473", name: "Benchmark Winston-Salem" }],
@@ -79,7 +82,7 @@ const clientModule = {
       {
         id: "sn2g",
         name: "Shift N2 Gear",
-        CRM: "lessannoyingcrm",
+        crm: "lessannoyingcrm",
         username: "jessieluvslife1978@gmail.com",
         password: "Wcmiw137!",
         stores: [{ id: "0000", name: "Shift N2 Gear" }],
@@ -87,7 +90,7 @@ const clientModule = {
       {
         id: "kcs",
         name: "Knight's Car Store",
-        CRM: "autorator",
+        crm: "autorator",
         username: "johnfordknight@gmail.com",
         password: "Carstore1",
         stores: [{ id: "0000", name: "Knight's Car Store" }],
@@ -95,7 +98,7 @@ const clientModule = {
       {
         id: "an",
         name: "Auto Now",
-        CRM: "simple-social",
+        crm: "simple-social",
         username: "mark@theautoadagency.com",
         password: "Mangosteen7038",
         stores: [
@@ -134,6 +137,17 @@ const clientModule = {
         data.push(clientData);
       });
       return data;
+    },
+    getAuthInfo: (state) => (clientId) => {
+      let result = { crm: null, authInfo: null };
+      const client = state.client.filter((client) => client.id === clientId)[0];
+      result.crm = client.crm;
+      result.authInfo = {
+        loginId: client.loginId,
+        username: client.username,
+        password: client.password,
+      };
+      return result;
     },
   },
   mutations: {},
