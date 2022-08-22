@@ -31,14 +31,15 @@ async function cyclcrm(requestInfo) {
 
 async function authentication(authInfo) {
   let authResult = { isLoggedIn: true };
-  const res = await axios.post(
-    `http://localhost:8080/cyclcrm/workers/login.php`,
-    {
+  const res = await axios({
+    method: "post",
+    url: `http://localhost:8080/cyclcrm/workers/login.php`,
+    data: {
       dealer_id: authInfo.loginId,
       username: authInfo.username,
       password: authInfo.password,
-    }
-  );
+    },
+  });
 
   // Check Authentication Success
   if (res.data === "false") authResult.isLoggedIn = false;
@@ -86,11 +87,11 @@ async function loopPeriods(data, store, periods) {
       location: "all",
     };
     console.l;
-    const res_leadCount = await axios.post(
-      `http://localhost:8080/cyclcrm/workers/get_leads_count.php`,
-      params
-    );
-    console.log(res_leadCount);
+    const res_leadCount = await axios({
+      method: "post",
+      url: `http://localhost:8080/cyclcrm/workers/get_leads_count.php`,
+      data: params,
+    });
 
     let leadCount = res_leadCount.data;
     if (leadCount === false) {
@@ -99,13 +100,14 @@ async function loopPeriods(data, store, periods) {
       data.push(periodData);
       continue;
     }
-    periodData.lead = leadCount;
+    periodData.leadCount = leadCount;
 
     // Get Sold Count
-    const res_soldCount = await axios.post(
-      `http://localhost:8080/cyclcrm/workers/get_sales.php`,
-      params
-    );
+    const res_soldCount = await axios({
+      method: "post",
+      url: `http://localhost:8080/cyclcrm/workers/get_sales.php`,
+      data: params,
+    });
 
     let soldCount = res_soldCount.data;
     if (soldCount.err !== "" || soldCount === false) {
